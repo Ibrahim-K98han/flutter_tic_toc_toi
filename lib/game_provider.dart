@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 enum Turn{
@@ -88,9 +90,32 @@ class GameProvider with ChangeNotifier{
         endGame();
         return;
       }
+      if(moves == 9 && _hasEnded == false){
+        _status = 'Match Drawn :(';
+        _hasEnded = true;
+        notifyListeners();
+      }
     }
   }
   void endGame(){
-
+    if(_mark == 'X'){
+      if(turn == Turn.PlayerOne){
+        _status = 'Player One Wins!!!';
+        _scoreOne++;
+      }else{
+        _status = 'Player Two Wins!!!';
+        _scoreTwo++;
+      }
+    }else{
+      if(turn == Turn.PlayerOne){
+        _status = 'Player Two Wins!!!';
+        _scoreTwo++;
+      }else{
+        _status = 'Player One Wins!!!';
+        _scoreOne++;
+      }
+    }
+    _hasEnded = true;
+    notifyListeners();
   }
 }
