@@ -24,7 +24,7 @@ class GameProvider with ChangeNotifier{
   int get playerOneScore => _scoreOne;
   int get playerTwoScore => _scoreTwo;
   String get mark => _mark;
-  bool get inFirst => _first;
+  bool get isFirst => _first;
   bool get isEnd => _hasEnded;
   String get result => _status;
   List<String> get cList => _checkList;
