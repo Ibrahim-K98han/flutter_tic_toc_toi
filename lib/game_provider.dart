@@ -76,7 +76,7 @@ class GameProvider with ChangeNotifier{
         return;
       }
       if(_checkList[2] == _mark && _checkList[5] == _mark && _checkList[8] == _mark){
-        winingCombination = [0,1,2];
+        winingCombination = [2,5,8];
         endGame();
         return;
       }
